@@ -1,6 +1,5 @@
 package com.kvest.mvp;
 
-import android.os.Parcelable;
 import android.support.annotation.CallSuper;
 
 /**
