@@ -6,16 +6,16 @@ import android.support.annotation.CallSuper;
 /**
  * Created by roman on 8/17/16.
  */
-public abstract class BasePresenter<V extends BaseView, T extends Parcelable> {
+public abstract class Presenter<V extends View> {
     protected V view;
 
     @CallSuper
-    public void attachView(V view){
+    public void onAttachView(V view){
         this.view = view;
     }
 
     @CallSuper
-    public void detachView(){
+    public void onDetachView(){
         this.view = null;
     }
 
@@ -23,9 +23,5 @@ public abstract class BasePresenter<V extends BaseView, T extends Parcelable> {
 
     public void onStop(){}
 
-    public T getInstanceState(){
-        return null;
-    }
-
-    public void restoreInstanceState(T savedInstanceState){}
+    public void onDestroy(){}
 }
