@@ -74,11 +74,13 @@ public abstract class PresenterActivity<T extends Presenter> extends BaseActivit
 
             if (presenter != null) {
                 onPresenterRestored(presenter);
-            } else {
-                //need to create new presenter
-                presenter = createPresenter();
-                presenterUUID = addPresenter(presenter);
             }
+        }
+
+        if (presenter == null) {
+            //need to create new presenter
+            presenter = createPresenter();
+            presenterUUID = addPresenter(presenter);
         }
     }
 

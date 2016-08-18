@@ -103,11 +103,13 @@ public abstract class PresenterFragment<T extends Presenter> extends Fragment im
 
             if (presenter != null) {
                 onPresenterRestored(presenter);
-            } else {
-                //need to create new presenter
-                presenter = createPresenter();
-                presenterUUID = presenterPersistStorage.addPresenter(presenter);
             }
+        }
+
+        if (presenter == null) {
+            //need to create new presenter
+            presenter = createPresenter();
+            presenterUUID = presenterPersistStorage.addPresenter(presenter);
         }
     }
 
