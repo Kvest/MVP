@@ -7,16 +7,34 @@ import android.support.annotation.CallSuper;
  */
 public abstract class Presenter<V extends View> {
     protected V view;
+    private boolean viewAttached;
+
+    public Presenter() {
+        view = NullObjectUtils.create(getViewClass());
+        viewAttached = false;
+    }
 
     @CallSuper
     public void onAttachView(V view){
         this.view = view;
+        this.viewAttached = true;
     }
 
     @CallSuper
     public void onDetachView(){
-        this.view = null;
+        this.view = NullObjectUtils.create(getViewClass());
+        this.viewAttached = false;
     }
+
+    /**
+     * Check if a real view is attached to this presenter
+     * @return true if a real view is attached to this presenter, false if a null-object is used as a view
+     */
+    public boolean isViewAttached() {
+        return viewAttached;
+    }
+
+    public abstract Class<V> getViewClass();
 
     public void onStart(){}
 
