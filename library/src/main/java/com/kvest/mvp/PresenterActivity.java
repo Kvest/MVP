@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by roman on 8/17/16.
  */
-public abstract class PresenterActivity<T extends Presenter> extends BaseActivity implements BaseView {
+public abstract class PresenterActivity<T extends BasePresenter> extends BaseActivity implements BaseView {
     private static final String KEY_PRESENTER_UUID = "com.kvest.mvp.key.PRESENTER_UUID";
 
     protected T presenter;

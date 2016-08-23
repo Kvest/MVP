@@ -6,7 +6,7 @@ import java.util.UUID;
  * Created by roman on 8/17/16.
  */
 interface PresenterPersistStorage {
-    Presenter getPresenter(UUID uuid);
-    UUID addPresenter(Presenter presenter);
-    Presenter removePresenter(UUID uuid);
+    BasePresenter getPresenter(UUID uuid);
+    UUID addPresenter(BasePresenter presenter);
+    BasePresenter removePresenter(UUID uuid);
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
  * Created by roman on 8/17/16.
  */
 public abstract class BaseActivity extends AppCompatActivity implements PresenterPersistStorage {
-    private SimpleArrayMap<UUID, Presenter> presentersContainer;
+    private SimpleArrayMap<UUID, BasePresenter> presentersContainer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,19 +21,19 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
     }
 
     @Override
-    public Presenter getPresenter(UUID uuid) {
+    public BasePresenter getPresenter(UUID uuid) {
         return presentersContainer.get(uuid);
     }
 
     @Override
-    public UUID addPresenter(Presenter presenter) {
+    public UUID addPresenter(BasePresenter presenter) {
         final UUID uuid = UUID.randomUUID();
         presentersContainer.put(uuid, presenter);
         return uuid;
     }
 
     @Override
-    public Presenter removePresenter(UUID uuid) {
+    public BasePresenter removePresenter(UUID uuid) {
         return presentersContainer.remove(uuid);
     }
 
@@ -64,14 +64,14 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
 
     private void restoreOrCreatePresentersContainer() {
         NonConfigurationInstance nci = (NonConfigurationInstance)getLastCustomNonConfigurationInstance();
-        presentersContainer = (nci == null) ? new SimpleArrayMap<UUID, Presenter>() : nci.presentersContainer;
+        presentersContainer = (nci == null) ? new SimpleArrayMap<UUID, BasePresenter>() : nci.presentersContainer;
     }
 
     private static final class NonConfigurationInstance {
         private final Object custom;
-        private final SimpleArrayMap<UUID, Presenter> presentersContainer;
+        private final SimpleArrayMap<UUID, BasePresenter> presentersContainer;
 
-        public NonConfigurationInstance(Object custom, SimpleArrayMap<UUID, Presenter> presentersContainer) {
+        public NonConfigurationInstance(Object custom, SimpleArrayMap<UUID, BasePresenter> presentersContainer) {
             this.custom = custom;
             this.presentersContainer = presentersContainer;
         }
