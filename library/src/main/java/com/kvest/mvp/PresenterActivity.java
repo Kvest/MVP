@@ -17,9 +17,9 @@ public abstract class PresenterActivity<T extends BasePresenter> extends BaseAct
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        restoreOrCreatePresenter(savedInstanceState);
-
         super.onCreate(savedInstanceState);
+
+        restoreOrCreatePresenter(savedInstanceState);
 
         if (presenter != null) {
             presenter.onAttachView(this);
