@@ -24,5 +24,9 @@ public class TestActivity extends AppCompatActivity {
         public void showPresenterActivityTest(Context context) {
             PresenterActivityTest.start(context);
         }
+
+        public void showPresenterFragmentTestActivity(Context context) {
+            PresenterFragmentTestActivity.start(context);
+        }
     }
 }

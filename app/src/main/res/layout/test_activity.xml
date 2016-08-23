@@ -16,5 +16,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{v -> viewModel.showPresenterActivityTest(context)}"
             android:text="Start PresenterActivityTest"/>
+        <Button
+            android:id="@+id/start_presenter_fragment_test_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> viewModel.showPresenterFragmentTestActivity(context)}"
+            android:text="Start PresenterFragmentTestActivity"/>
     </LinearLayout>
 </layout>
