@@ -5,7 +5,7 @@ import android.support.annotation.CallSuper;
 /**
  * Created by roman on 8/17/16.
  */
-public abstract class Presenter<V extends View> {
+public abstract class Presenter<V extends BaseView> {
     protected V view;
     private boolean viewAttached;
 

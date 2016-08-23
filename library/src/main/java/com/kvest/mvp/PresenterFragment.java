@@ -11,7 +11,7 @@ import java.util.UUID;
 /**
  * Created by roman on 8/17/16.
  */
-public abstract class PresenterFragment<T extends Presenter> extends Fragment implements View {
+public abstract class PresenterFragment<T extends Presenter> extends Fragment implements BaseView {
     private static final String KEY_PRESENTER_UUID = "com.kvest.mvp.key.PRESENTER_UUID";
 
     protected T presenter;
