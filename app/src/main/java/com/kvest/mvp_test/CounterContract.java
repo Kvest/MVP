@@ -14,7 +14,7 @@ public class CounterContract {
         void logMessage(String message);
     }
 
-    abstract class Presenter extends BasePresenter<View> {
+    abstract static class Presenter extends BasePresenter<View> {
         abstract void increment();
         abstract void decrement();
     }
