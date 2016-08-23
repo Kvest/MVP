@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MVP</string>
+    <string name="counter_pattern">Counter: %1$d</string>
 </resources>

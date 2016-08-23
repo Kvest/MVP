@@ -20,11 +20,8 @@ public abstract class PresenterActivity<T extends BasePresenter> extends BaseAct
         super.onCreate(savedInstanceState);
 
         restoreOrCreatePresenter(savedInstanceState);
-    }
 
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+        onBeforeAttachView();
 
         if (presenter != null) {
             presenter.onAttachView(this);
@@ -103,6 +100,12 @@ public abstract class PresenterActivity<T extends BasePresenter> extends BaseAct
      * View is not attached to presenter at this moment.
      */
     protected void onPresenterRestored(T presenter) { }
+
+    /*
+    Method is called when all the stuff in OnCreate is finished and before the view will be attached to the presenter
+    This method is handy for doing UI initializations
+     */
+    protected void onBeforeAttachView() {}
 
     @NonNull
     protected abstract T createPresenter();

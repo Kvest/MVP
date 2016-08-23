@@ -30,9 +30,9 @@ public abstract class PresenterFragment<T extends BasePresenter> extends Fragmen
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        restoreOrCreatePresenter(savedInstanceState);
-
         super.onCreate(savedInstanceState);
+
+        restoreOrCreatePresenter(savedInstanceState);
     }
 
     @Override
