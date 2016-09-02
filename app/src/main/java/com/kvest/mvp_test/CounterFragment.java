@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.kvest.mvp.PresenterFragment;
 import com.kvest.mvp_test.databinding.CounterFragmentBinding;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by roman on 8/23/16.
@@ -42,6 +43,14 @@ public class CounterFragment extends PresenterFragment<CounterContract.Presenter
         CounterFragmentBinding binding = DataBindingUtil.inflate(inflater, R.layout.counter_fragment, container, false);
         binding.setCounterViewModel(counterViewModel);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        RefWatcher refWatcher = TestApplication.getApplication().getRefWatcher();
+        refWatcher.watch(this);
     }
 
     @Override
