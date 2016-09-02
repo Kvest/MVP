@@ -16,10 +16,22 @@ import com.kvest.mvp_test.databinding.CounterFragmentBinding;
  * Created by roman on 8/23/16.
  */
 public class CounterFragment extends PresenterFragment<CounterContract.Presenter> implements CounterContract.View {
+    private static final String KEY_RETAIN = "com.kvest.mvp_test.key.RETAIN";
+
     private CounterViewModel counterViewModel;
+    private boolean retain = true;
 
     public static CounterFragment newInstance() {
         return new CounterFragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            retain = savedInstanceState.getBoolean(KEY_RETAIN, retain);
+        }
+
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -30,6 +42,11 @@ public class CounterFragment extends PresenterFragment<CounterContract.Presenter
         CounterFragmentBinding binding = DataBindingUtil.inflate(inflater, R.layout.counter_fragment, container, false);
         binding.setCounterViewModel(counterViewModel);
         return binding.getRoot();
+    }
+
+    @Override
+    protected boolean retainPresenter() {
+        return retain;
     }
 
     @NonNull
@@ -48,7 +65,18 @@ public class CounterFragment extends PresenterFragment<CounterContract.Presenter
         log("Presenter", message);
     }
 
+    public void setRetain(boolean retain) {
+        this.retain = retain;
+    }
+
     private void log(String component, String message) {
         Log.d("KVEST_TAG", String.format("[%s] %s", component, message));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(KEY_RETAIN, retain);
     }
 }

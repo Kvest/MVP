@@ -22,5 +22,23 @@
             android:layout_height="wrap_content"
             android:onClick="@{v -> viewModel.showPresenterFragmentTestActivity(context)}"
             android:text="Start PresenterFragmentTestActivity"/>
+        <Button
+            android:id="@+id/start_no_retain_presenter_activity_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> viewModel.showNoRetainPresenterActivityTest(context)}"
+            android:text="Start PresenterActivityTest without retain"/>
+        <Button
+            android:id="@+id/start_no_retain_presenter_fragment_test_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> viewModel.showNoRetainPresenterFragmentTestActivity(context)}"
+            android:text="Start PresenterFragmentTestActivity without retain"/>
+        <Button
+            android:id="@+id/start_view_pager_activity_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> viewModel.showViewPagerTestActivity(context)}"
+            android:text="Start ViewPAgerActivity"/>
     </LinearLayout>
 </layout>

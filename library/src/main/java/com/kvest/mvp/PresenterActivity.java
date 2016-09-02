@@ -54,7 +54,7 @@ public abstract class PresenterActivity<T extends BasePresenter> extends BaseAct
             presenter.onDetachView();
         }
 
-        if (!retainPresenter() || !isChangingConfigurations()) {
+        if (!retainPresenter() || isFinishing()) {
             if (presenter != null) {
                 removePresenter(presenterUUID);
                 presenter.onDestroy();

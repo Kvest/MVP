@@ -17,5 +17,7 @@
             android:name=".PresenterActivityTest"/>
         <activity
             android:name=".PresenterFragmentTestActivity" />
+        <activity
+            android:name=".ViewPagerTestActivity" />
     </application>
 </manifest>

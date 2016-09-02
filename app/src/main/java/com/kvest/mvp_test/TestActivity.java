@@ -22,11 +22,23 @@ public class TestActivity extends AppCompatActivity {
 
     public class ViewModel {
         public void showPresenterActivityTest(Context context) {
-            PresenterActivityTest.start(context);
+            PresenterActivityTest.start(context, true);
         }
 
         public void showPresenterFragmentTestActivity(Context context) {
-            PresenterFragmentTestActivity.start(context);
+            PresenterFragmentTestActivity.start(context, true, true);
+        }
+
+        public void showViewPagerTestActivity(Context context) {
+            ViewPagerTestActivity.start(context);
+        }
+
+        public void showNoRetainPresenterActivityTest(Context context) {
+            PresenterActivityTest.start(context, false);
+        }
+
+        public void showNoRetainPresenterFragmentTestActivity(Context context) {
+            PresenterFragmentTestActivity.start(context, true, false);
         }
     }
 }

@@ -75,7 +75,7 @@ public abstract class PresenterFragment<T extends BasePresenter> extends Fragmen
     public void onDestroy() {
         super.onDestroy();
 
-        if (!retainPresenter() || !getActivity().isChangingConfigurations()) {
+        if (!retainPresenter() || getActivity().isFinishing()) {
             if (presenter != null) {
                 presenterPersistStorage.removePresenter(presenterUUID);
                 presenter.onDestroy();
